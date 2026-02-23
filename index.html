@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>CLOCKWORKORANGE</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.1/mapbox-gl-geocoder.css"
+/>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.1/mapbox-gl-geocoder.min.js"></script>
+
+
+
+<link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.18.0/mapbox-gl.css'>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.1/mapbox-gl-geocoder.css'><link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!-- Initial Rendering and Responsiveness -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glasgow Subway Tourist Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Navigation Panel and Map Loading. Essential. https://docs.mapbox.com/mapbox-gl-js/guides/ -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+
+    <!-- Search bar plug from Mapbox API https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder-limit-region/, https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+
+    <!-- Welcome Opening Page with Sources -->
+    <div id="welcome-overlay">
+      <div id="welcome-box">
+        <h1 class="welcome-title">Welcome to the Glasgow Subway Tourist Map</h1>
+
+        <p>
+This is an interactive map of the Glasgow Subway with Points of Interest (POIs) as described in Online Source material from the Strathclyde Partnership for Transport.
+        </p>
+
+        <ul class="welcome-list">
+          <li>Hover over stations or POIs to quickly view their names.</li>
+          <li>Click an orange subway station to see nearby POIs. Then, click a nearby POI to render navigation.</li>
+          <li>Click a Legend Category to highlight related POIs on the map. Press a highlighted POI to render navigation.</li>
+          <li>Click a POI independent of other functions to render its navigation from the nearest subway station.</li>
+          <li>Zoom, pan, or use your location to explore the map in detail. Press anywhere to undo an interaction.</li>
+<p><strong>Sources:</strong>
+<a href="https://www.openstreetmap.org/#map=13/55.85176/-4.25428" target="_blank">OSM</a>
+<a href="https://osdatahub.os.uk/data/downloads/open/OpenMapLocal" target="_blank">OS OpenMap-Local</a>
+<a href="https://www.spt.co.uk/media/l1tfffo1/subway_tourist_map.pdf" target="_blank">SPT Subway PDF</a>
+</p>
+
+        <button id="welcome-close">Start Exploring</button>
+      </div>
+    </div>
+
+    <!-- Structure for bottom-left help tab.-->
+    <div id="help-tab">Help</div>
+    </div>
+
+    <!-- This is the Container that the entire web map sits in. Do not delete! -->
+    <div id="app">
+
+      <header class="app-header">
+        <div class="header-left">
+          <h1>Glasgow Subway Tourist Map</h1>
+          <div id="legend"></div>
+        </div>
+
+        <div id="header-search"></div>
+      </header>
+
+      <div id="map"></div>
+
+    </div>
+
+  </body>
+</html>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.18.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.1/mapbox-gl-geocoder.min.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>

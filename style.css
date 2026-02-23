@@ -1,0 +1,338 @@
+/* This is the backdrop for the Welcome Window*/
+#welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 40px;
+  z-index: 9999;
+}
+
+
+/* Welcome overlay here */
+#welcome-box {
+  background: white;
+  padding: 10px 20px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* This line centers the Welcome Title */
+#welcome-box .welcome-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* This block aligns Welcome Window tabs to the left w/ bullet indentations. */
+#welcome-box .welcome-list {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* This styles the "Start Exploring Button" */
+#welcome-close {
+  margin-top: 20px;
+  padding: 12px 20px;
+  width: 100%;
+  background: 
+#fb6000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/*This styles the button so that it is dimmed upon hovering*/
+#welcome-close:hover {
+  background: #d85f1c;
+}
+
+/*The two blocks below are for hyperlink styling.*/
+#welcome-box a {
+  color: #666;
+  text-decoration: underline;
+}
+#welcome-box a:hover {
+  color: #444;
+  text-decoration: underline;
+}
+
+
+/* This is the Global layout of the map including font that is visually close to that of the current subway branding. */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+/* This block is for relationship between header map and display so that it is adjustable between devices. */
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glasgow Subway Tourist Map Title */
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: 
+#fb6000 !important;
+  font-weight: bold;
+}
+
+/* Legend box styles */
+#legend {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+/* This block allows the map to fill the screen irrespective of device. */
+#map {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+/* This block contains the legend.*/
+.legend-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/*This is a flat-design way for each Legend Category Tab to be presented. */
+.legend-tab {
+  position: relative;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+
+  /* Keeping tab sizes and interaction stable. */
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+/* Applying black border to tabs when hovering. */
+.legend-tab:hover {
+  border-color: black;
+}
+
+/* This current black border doesnt work and may relate to the flickering black border and tooltip issue mentioned in Project Limitations. */
+.legend-tab.active {
+  border-color: black !important;
+}
+
+
+/* Advanced tooltip styling. May contribute to flicker issue in Project Limitations. */
+.legend-tab-tooltip {
+  position: absolute;
+  left: 50%;
+  top: -26px;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s;
+
+  /* This specific code may be causing the flicker, but upon taking it away, the tooltip will promptly disappear after hovering. Better to keep it for the purposes of the assignment. */
+  pointer-events: none !important;
+}
+
+.legend-tab:hover .legend-tab-tooltip {
+  opacity: 1;
+}
+
+/* This CSS fades legend tab upon zooming when certain cetegories are not represented in the frame of view. A style refinement. */
+.legend-tab.faded {
+  opacity: 0.35;
+}
+
+/* Search bar specifications. */
+#header-search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Little code to move the search glass to the right. It felt ugly otherwise. */
+.mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--icon-search {
+  right: 8px;
+  left: auto;
+}
+
+.mapboxgl-ctrl-geocoder input {
+  padding-right: 32px !important;
+}
+
+.mapboxgl-ctrl-geocoder {
+  width: 300px !important;
+  max-width: 100%;
+}
+
+/* Optimized header layout specifically considered to minimize a bulky header in mobile/smaller layouts. */
+.app-header {
+  background: white;
+  padding: 6px 12px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-header h1 {
+  font-size: 1.6rem;
+}
+
+/* Left side of header. */
+.header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Right side of header. */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Subway hover pop-up optimized for compactness and differentiation between subway and POI pop-ups. */
+.mapboxgl-popup.station-hover-popup .mapboxgl-popup-content {
+  background: 
+#fb6000 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  line-height: 1.1 !important;
+  border-radius: 6px !important;
+  max-width: 120px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.mapboxgl-popup.station-hover-popup .mapboxgl-popup-tip {
+  border-top-color: #ff6200 !important;
+}
+
+/* POI pop-up that was considered to be same size as those for the subway, but does not seem to work possibly due to Mapbox style preset.!important was devised as a way to force these changes but was not effective. */
+.mapboxgl-popup.poi-hover-popup .mapboxgl-popup-content {
+  background: rgba(255, 255, 255, 1) !important;
+  color: #333 !important;
+  font-weight: 600 !important;
+
+  /* Additional attempts at making the POI pop-ups with Copilot sample coding were ineffective. */
+  padding: 1px 6px !important;
+  font-size: 12px !important;
+  line-height: 1.05 !important;
+  border-radius: 6px !important;
+  max-width: 120px !important;
+
+  text-align: center !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.mapboxgl-popup.poi-hover-popup .mapboxgl-popup-tip {
+  border-top-color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Bottom-left Help tab contains the Initial Welcome Window as a simple reference tool. */
+#help-tab {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  cursor: pointer;
+  display: none;
+  z-index: 9999;
+}
+
+/* Search Bar is moved slightly left in order to allow dropdown menu to not conflict with zoom and location services at top-right. */
+#header-search .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+  margin-right: 50px;
+}
+
+/* Medium screen Header reduction, ie,, for a tablet */
+@media (max-width: 1100px) {
+  .app-header {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  #header-search .mapboxgl-ctrl-geocoder {
+    width: 220px !important;
+  }
+
+  #legend {
+    transform: scale(0.9);
+    transform-origin: left top;
+  }
+}
+
+/* Copilot sample code applied to attempt Mobile formatting */
+@media (max-width: 675px) {
+
+  /* Allowing upon a certain smaller screen level, the legend compresses into a scrollable bar. */
+  #legend {
+    max-height: 60px;
+    overflow-y: auto;        
+    overflow-x: hidden;
+    width: fit-content;       
+    padding: 4px 8px;
+    margin: 0 auto;           
+    flex-shrink: 0;           
+    display: flex;
+  }
+
+  /* Additional code to center Legend categories and center them in the scroll. */
+  .legend-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  /* This code maintains the tabs when the screen display is smaller. */
+  .legend-tab {
+    width: auto;
+    max-width: none;           
+    flex: 0 0 auto;
+    transform: none;
+  }
+}
